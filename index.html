@@ -1,4 +1,49 @@
-asdfasdf
+<!DOCTYPE html>
+<html lang="en">
 
-<img src="drive.google.com/uc?id=1-RM0I9eiH3T9JhT4mYb-CirKdCRe0u0q&export=download" alt="Girl in a jacket" width="500" height="600">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaroid Image Gallery</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <script>
+        function carregar() {
+            $.getJSON("https://www.googleapis.com/drive/v3/files/1geKfDMCmghJ66w_yxNuVuCfX6hexkHlu?alt=media&key=AIzaSyARIgu7D-jp7Wx9E_2jQeUQLSP_BYlHEt4", function(data) {
+                galleryData = data.pictures
+                for (var i = 0; i < galleryData.length; i++) {
+                    var obj = galleryData[i];
+                    var div = document.getElementById('fotos');
 
+                    var elem = document.createElement("img");
+                    elem.setAttribute("src", obj.url);
+                    elem.setAttribute("height", "30%");
+                    elem.setAttribute("width", "30%");
+                    elem.setAttribute("alt", "Flower");
+                    document.getElementById("fotos").appendChild(elem);
+                    console.log(obj.url);
+                }
+
+            });
+        }
+    </script>
+</head>
+
+<body onload="carregar()">
+
+
+    <header>
+        <img src="./img/polaroid_logo.png" alt="Polaroid Image Gallery Logo">
+    </header>
+
+    <div id="app"></div>
+
+    <!-- JQuery from CDN, its avaible in local JS folder for offline development-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <div id="fotos">
+    </div>
+
+</body>
+
+</html>
