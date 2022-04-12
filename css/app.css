@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+#app {
+    /*
+    position: relative;
+    
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    */
+}
+
 body {
     background: #f7f7f7 url("../img/wood_texture.jpg");
     font-size: 62.5%;
@@ -59,8 +70,8 @@ header img {
 .gallery .polaroid img {
     width: 100%;
     height: auto;
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 150px;
+    max-height: 150px;
     position: relative;
 }
 
@@ -72,4 +83,8 @@ header img {
     font-weight: bold;
     line-height: 1;
     text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
