@@ -1,7 +1,16 @@
+let req = new XMLHttpRequest();
+
+
+
+req.open("GET", "https://api.jsonbin.io/v3/b/625409e87b69e806cf4bcb02/latest", true);
+req.setRequestHeader("X-Master-Key", "$2b$10$DiOmu04bVKYjDW4uIszdrerbJVV5JoCtov1.iyL51PjNwU65.He3S");
+req.setRequestHeader("X-Bin-Meta", "false");
+req.send();
+
 // Placing of images into HTML
 function galleryTemplate(art) {
     return `
-    <div class="gallery">
+    <div hidden class="gallery">
         <figure class="polaroid">
             <img src="${art.url_thumb}" data-full-image="${art.url}">
             <figcaption> </figcaption>
@@ -9,8 +18,6 @@ function galleryTemplate(art) {
     </div>
   `;
 }
-
-let req = new XMLHttpRequest();
 
 req.onreadystatechange = () => {
     if (req.readyState == XMLHttpRequest.DONE) {
@@ -21,7 +28,7 @@ req.onreadystatechange = () => {
         // Randomize polaroid images
         $('.polaroid').each(function() {
             const depth = Math.floor(Math.random() * 100);
-            const rotate = Math.random() * 41 - 15;
+            const rotate = Math.random() * 41 - 10;
 
             $(this).css({
                 'z-index': depth,
@@ -36,10 +43,10 @@ req.onreadystatechange = () => {
             $(".modal-content").show()
             $("#myModal").modal();
         });
+
+        $('img').on('load', function(event) {
+            $(event.currentTarget).parent().parent().removeAttr("hidden");
+            $("header").html("<b>Faig un any!</b>");
+        });
     }
 };
-
-req.open("GET", "https://api.jsonbin.io/v3/b/625409e87b69e806cf4bcb02/latest", true);
-req.setRequestHeader("X-Master-Key", "$2b$10$DiOmu04bVKYjDW4uIszdrerbJVV5JoCtov1.iyL51PjNwU65.He3S");
-req.setRequestHeader("X-Bin-Meta", "false");
-req.send();
