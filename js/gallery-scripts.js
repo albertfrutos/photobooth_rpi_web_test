@@ -35,24 +35,11 @@ req.onreadystatechange = () => {
             $("#imgModal").attr('src', $(this).find('img').attr('data-full-image'))
             $(".modal-content").show()
             $("#myModal").modal();
-
-
         });
-
-
-
     }
 };
-
-
 
 req.open("GET", "https://api.jsonbin.io/v3/b/625409e87b69e806cf4bcb02/latest", true);
 req.setRequestHeader("X-Master-Key", "$2b$10$DiOmu04bVKYjDW4uIszdrerbJVV5JoCtov1.iyL51PjNwU65.He3S");
 req.setRequestHeader("X-Bin-Meta", "false");
 req.send();
-
-
-
-
-// Credits
-console.log('%cPolaroid Image Gallery\n\nDesign by: Mehluli Hikwa\n\nwww.thatafro.com', 'font-size: 14px; font-weight: bold;')
