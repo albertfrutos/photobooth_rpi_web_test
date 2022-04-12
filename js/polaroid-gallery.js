@@ -4,13 +4,7 @@ function galleryTemplate(art) {
     <div class="gallery">
         <figure class="polaroid">
             <img src="${art.url_thumb}" data-full-image="${art.url}">
-            <figcaption>text</figcaption>
-        </figure>
-    </div>
-    <div class="gallery">
-        <figure class="polaroid">
-            <img src="${art.url_thumb}" data-full-image="${art.url}">
-            <figcaption>text</figcaption>
+            <figcaption> </figcaption>
         </figure>
     </div>
   `;
@@ -38,13 +32,9 @@ req.onreadystatechange = () => {
         $(".gallery").click(function() {
             $(".modal-content").hide()
             var a = $(this).find('img').attr('data-full-image')
-            $('.modal-body').prepend('<img id="imgModal" src="{}" width="100%">')
             $("#imgModal").attr('src', $(this).find('img').attr('data-full-image'))
             $(".modal-content").show()
             $("#myModal").modal();
-            $("#imgModal").load(function() {
-                alert("now");
-            });
 
 
         });
