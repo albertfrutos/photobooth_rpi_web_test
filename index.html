@@ -7,42 +7,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polaroid Image Gallery</title>
     <link rel="stylesheet" href="./css/app.css">
-    <script>
-        function carregar() {
-            $.getJSON("https://www.googleapis.com/drive/v3/files/1geKfDMCmghJ66w_yxNuVuCfX6hexkHlu?alt=media&key=AIzaSyARIgu7D-jp7Wx9E_2jQeUQLSP_BYlHEt4", function(data) {
-                galleryData = data.pictures
-                for (var i = 0; i < galleryData.length; i++) {
-                    var obj = galleryData[i];
-                    var div = document.getElementById('fotos');
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-                    var elem = document.createElement("img");
-                    elem.setAttribute("src", obj.url);
-                    elem.setAttribute("height", "30%");
-                    elem.setAttribute("width", "30%");
-                    elem.setAttribute("alt", "Flower");
-                    document.getElementById("fotos").appendChild(elem);
-                    console.log(obj.url);
-                }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-            });
-        }
-    </script>
+
+
 </head>
 
-<body onload="carregar()">
+<body>
 
 
     <header>
-        <img src="./img/polaroid_logo.png" alt="Polaroid Image Gallery Logo">
     </header>
+
+
+
+
+    <div class="container">
+        <!--
+        <h2>Activate Modal with JavaScript</h2>
+        
+        <button type="button" class="btn btn-info btn-lg" id="myBtn">Open Modal</button>
+        -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                    <!--
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    -->
+                    <div class="modal-body" width="100%">
+                        <p>Some text in the modal.</p>
+                        <img id="imgModal" src="" width="100%">
+                    </div>
+                    <!--
+                        <div class="modal-footer">
+                        </div>
+                    -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!--
+    <script>
+        $(document).ready(function() {
+            $("#myBtn").click(function() {
+                $("#myModal").modal();
+            });
+        });
+    </script>
+    -->
+
+
+    <!-- JQuery from CDN, its avaible in local JS folder for offline development-->
+
+    <!-- Image JSON file -->
+    <script src="./js/images.json"></script>
+
+    <!-- Polaroid Image Gallery Script -->
+    <script src="./js/polaroid-gallery.js"></script>
 
     <div id="app"></div>
 
-    <!-- JQuery from CDN, its avaible in local JS folder for offline development-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <div id="fotos">
-    </div>
 
 </body>
 
