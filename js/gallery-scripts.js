@@ -24,7 +24,7 @@ $(document).ready(function() {
     var options = {
         theme: "custom",
         // If theme == "custom" , the content option will be available to customize the logo
-        content: '<img style="width:120px;" src="https://www.pngkey.com/png/detail/945-9455051_sccamera-camera-poloroid-rainbow-oldschool-oldcamera-old-polaroid.png" class="center-block">',
+        content: '<img style="width:120px;" src="img/image_camera_SMALL.png" class="center-block">',
         message: '</br></br>Una mica de paciència, he anat a buscar les fotos...',
         backgroundColor: "#ffffff",
         textColor: "black"
@@ -53,8 +53,8 @@ req.onreadystatechange = () => {
             var options = {
                 theme: "custom",
                 // If theme == "custom" , the content option will be available to customize the logo
-                content: '<img style="width:120px;" src="https://www.pngkey.com/png/detail/945-9455051_sccamera-camera-poloroid-rainbow-oldschool-oldcamera-old-polaroid.png" class="center-block">',
-                message: '</br></br>Espera mentre et porto la foto en gran!',
+                content: '<img style="width:120px;" src="img/image_camera_SMALL.png" class="center-block">',
+                message: '<p style="text-align: center;"></br></br>&nbsp;Espera mentre et porto la foto en gran!</p>',
                 backgroundColor: "#ffffff",
                 textColor: "black"
             };
