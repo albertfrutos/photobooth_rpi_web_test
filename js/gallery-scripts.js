@@ -19,6 +19,19 @@ function galleryTemplate(art) {
   `;
 }
 
+
+$(document).ready(function() {
+    var options = {
+        theme: "custom",
+        // If theme == "custom" , the content option will be available to customize the logo
+        content: '<img style="width:120px;" src="https://www.pngkey.com/png/detail/945-9455051_sccamera-camera-poloroid-rainbow-oldschool-oldcamera-old-polaroid.png" class="center-block">',
+        message: '</br></br>Una mica de paciència, he anat a buscar les fotos...',
+        backgroundColor: "#ffffff",
+        textColor: "black"
+    };
+    HoldOn.open(options);
+});
+
 req.onreadystatechange = () => {
     if (req.readyState == XMLHttpRequest.DONE) {
         console.log(req.responseText);
@@ -37,14 +50,31 @@ req.onreadystatechange = () => {
         });
 
         $(".gallery").click(function() {
+            var options = {
+                theme: "custom",
+                // If theme == "custom" , the content option will be available to customize the logo
+                content: '<img style="width:120px;" src="https://www.pngkey.com/png/detail/945-9455051_sccamera-camera-poloroid-rainbow-oldschool-oldcamera-old-polaroid.png" class="center-block">',
+                message: '</br></br>Espera mentre et porto la foto en gran!',
+                backgroundColor: "#ffffff",
+                textColor: "black"
+            };
+            HoldOn.open(options);
+
             $(".modal-content").hide()
             var a = $(this).find('img').attr('data-full-image')
             $("#imgModal").attr('src', $(this).find('img').attr('data-full-image'))
-            $(".modal-content").show()
             $("#myModal").modal();
+            $('#imgModal').on('load', function(event) {
+                HoldOn.close();
+                $(".modal-content").fadeIn(1000);
+
+            });
+
         });
 
-        $('img').on('load', function(event) {
+        $('div#app img').on('load', function(event) {
+            HoldOn.close()
+            $("#mainDiv").removeAttr("hidden").fadeIn(2000);
             $(event.currentTarget).parent().parent().removeAttr("hidden");
             $("header").html("<b>Faig un any!</b>");
         });
