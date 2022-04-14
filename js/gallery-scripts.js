@@ -3,7 +3,7 @@ let req = new XMLHttpRequest();
 
 
 req.open("GET", "https://api.jsonbin.io/v3/b/625409e87b69e806cf4bcb02/latest", true);
-req.setRequestHeader("X-Master-Key", "$2b$10$DiOmu04bVKYjDW4uIszdrerbJVV5JoCtov1.iyL51PjNwU65.He3S");
+req.setRequestHeader("X-Master-Key", "$2b$10$UtIq.lzt5IUjqPjX6Ql2DO/Hqas7k0HUAWaJQ.MoXq9Ys5g4I0hZW");
 req.setRequestHeader("X-Bin-Meta", "false");
 req.send();
 
