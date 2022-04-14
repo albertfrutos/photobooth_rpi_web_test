@@ -41,7 +41,7 @@ req.onreadystatechange = () => {
         // Randomize polaroid images
         $('.polaroid').each(function() {
             const depth = Math.floor(Math.random() * 100);
-            const rotate = Math.random() * 41 - 10;
+            const rotate = Math.random() * 41 - 15;
 
             $(this).css({
                 'z-index': depth,
