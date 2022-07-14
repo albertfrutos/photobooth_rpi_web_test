@@ -35,8 +35,8 @@ $(document).ready(function() {
 req.onreadystatechange = () => {
     if (req.readyState == XMLHttpRequest.DONE) {
         console.log(req.responseText);
-        a = JSON.parse(req.responseText);
-        document.getElementById("app").innerHTML = a.pictures.map(galleryTemplate).join("")
+        jsonResponse = JSON.parse(req.responseText);
+        document.getElementById("app").innerHTML = jsonResponse.pictures.map(galleryTemplate).join("")
 
         // Randomize polaroid images
         $('.polaroid').each(function() {
@@ -76,7 +76,7 @@ req.onreadystatechange = () => {
             HoldOn.close()
             $("#mainDiv").removeAttr("hidden").fadeIn(2000);
             $(event.currentTarget).parent().parent().removeAttr("hidden");
-            $("header").html("<b>Faig un any!</b>");
+            $("header").html("<b>Els Mombitos... fem un any!</b><img src='img/party_flags.png' width='100%' height='auto' />");
         });
     }
 };
